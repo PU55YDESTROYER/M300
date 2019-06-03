@@ -65,7 +65,7 @@ Um eine bestehende VM mit Vagrant einzurichten muss zuerst das Vagrantfile vorha
 
 # _K4 
 # FireWall eingerichtet inkl. Rules 
-Die Firewall wurde mit folgenden Befehlen eingerichtet und konfiguriert. Ich habe mich dafür entschieden, dass Port 80 offen ist, damit man auch auf die Website gelangen kann. Auch habe ich den Port 22 geöffnet, damit mit SSh verbunden werden kann. 
+Die Firewall wurde mit folgenden Befehlen eingerichtet und konfiguriert.
 ```
         #firewall installieren
         sudo apt-get -y install ufw
@@ -91,78 +91,7 @@ Möchte man die aktiven FireWall Rules anschauen, kann man das mit einem Befehl 
     80/tcp (v6)                ALLOW       Anywhere (v6)
     22/tcp (v6)                ALLOW       Anywhere (v6)
 ```
-# Reverse-Proxy eingerichtet 
-Den Reverse Proxy habe ich mit folgdenden Befehlen eingerichtet:  
-    
-```
-    #Proxserver einrichten
-    sudo apt-get -y install apache2-bin libxml2-dev
-    sudo service apache2 restart
-    sudo a2enmod proxy
-    sudo service apache2 restart
-    sudo a2enmod proxy_html
-    sud service apache2 restart
-    sudo a2enmod proxy_http
-
-    echo "ServerName localhost" >> /etc/apache2/apache2.conf
-
-    sudo service apache2 restart
-
-    sudo rm /etc/apache2/sites-available/000-default.conf
-    sudo touch /etc/apache2/sites-available/000-default.conf
-    cat >> /etc/apache2/sites-available/000-default.conf<<EOL
-    <VirtualHost *:80>
-            ServerAdmin webmaster@localhost
-            DocumentRoot /var/www/html
-
-            <Directory /var/www/html/>
-                Options Indexes FollowSymLinks
-                AllowOverride All
-                Require all granted
-            </Directory>
-
-            ErrorLog ${APACHE_LOG_DIR}/error.log
-            CustomLog ${APACHE_LOG_DIR}/access.log combined
-
-            <IfModule mod_dir.c>
-                DirectoryIndex index.php index.pl index.cgi index.html index.xhtml index.htm
-            </IfModule>
-                        # Allgemeine Proxy Einstellungen
-        ProxyRequests Off
-        <Proxy *>
-            Order deny,allow
-            Allow from all
-        </Proxy>
-
-        # Weiterleitungen master
-        ProxyPass /master http://master
-        ProxyPassReverse /master http://master
-
-    </VirtualHost>
-    EOL
-
-```
-Mit Cat habe ich mehrere Zeilen Inhalt in die Datei 000-default.conf hinzugefügt. 
-
-# Benutzer- und Rechtevergabe ist eingerichtet 
-Ich habe einen zweiten "standard" Benutzer eingerichtet, der nicht zu viele Rechte erhalten sollte. Ausserdem habe ich eine neue Gruppe erstellt, wo all die "standard" Benutzer zugewiesen werden. Zum Test habe ich auch ein File erstellt mit bestimmten Berechtigungen. 
-
-```
-    #Neuer Benutzer erstellen mit Home-Directory
-    sudo useradd -m oscar
-
-    #Neue Gruppe erstellen
-    sudo addgroup --gid 2000 standard_group
-
-    #Benutzer Gruppe hinzufügen
-    sudo usermod -aG standard_group oscar
-```
-Parameter kurz erklärt: 
-* useradd erstellt Benutzer
-* -m erstellt ein Homeverzeichnis
-* --gid erstellt Gruppe mit bestimmter ID
-* usermod -aG fügt einen Benutzer in weiteren Gruppen hinzu
 
 # _K5 
 # Reflexion 
-sehr gut
+Interessantes Thema, jedoch wurde durch meine Faulheit wenig gemacht.
