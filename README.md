@@ -92,6 +92,10 @@ Möchte man die aktiven FireWall Rules anschauen, kann man das mit einem Befehl 
     22/tcp (v6)                ALLOW       Anywhere (v6)
 ```
 
-# _K5 
+# _K5
+
+#Wissenzuwachs
+Zuvor kannte ich nur Visual Studio, da ich früher mit Programmieren zu tun hatte, jedoch war mein Wissen in Visual Studio gering. Auch mit Github hatte ich zu tun, da es eine sehr praktische Pllattform ist, sich wissen zu erwerben. Es existieren auch sehr praktische Vorlagen wie auch Tutorials die mir früher geholfen haben. Neu kenn ich Vagrant und Git Bash, Git Bash ist nicht allzu anders als Linux Bash. Zudem habe ich noch mehr über Visual Studio gelernt, sowie auch über die Verknüpfung von Visual Studio mit Github, was für mich etwas verwirrend war.
+
 # Reflexion 
 Interessantes Thema, jedoch wurde durch meine Faulheit wenig gemacht.
