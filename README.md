@@ -157,16 +157,27 @@ Container erstellen wird auch „Virtualisierung der Virtualisierung“ oder „
 ## Docker Befehle
 
 Befehl
+
 docker build "Source"
+
 [Erstellt ein Docker image]
+
 docker exec it "Container" \bin\bash
+
 [Exploriert einen Container]
+
 docker images
+
 [Zeigt alle verfügbare Docker images]
+
 docker rmi "image"
+
 [Löscht ein Docker image]
+
 docker run "image"
+
 [startet ein Docker image]
+
 Docker installation
 TAAPEAA1@U278700 MINGW64 /c/users/TAAPEAA1/Desktop/M300-Services (master) $ vagrant ssh Welcome to Ubuntu 16.04.6 LTS (GNU/Linux 4.4.0-148-generic x86_64)
 
